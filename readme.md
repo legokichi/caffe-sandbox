@@ -21,5 +21,8 @@ python show_result.py $CAFFE_HOME/data/ilsvrc12/synset_words.txt result.npy.npy
 ## resnet
 
 ```sh
+pyenv shell anaconda2-4.3.1
+for req in $(cat ../caffe/python/requirements.txt); do pip install $req; done 
+conda install libgcc
 ../caffe/python/classify.py --raw_scale 224 --model_def ResNet-50-deploy.prototxt --pretrained_model ResNet-50-model.caffemodel --mean_file '' ./crop.jpg result.npz
 ```
